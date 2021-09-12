@@ -8,7 +8,7 @@ A Telegram bot which search copypasta through inline mode.
 
 # Introduction & About
 
-I'm new to these languages, so probably the code and the methods aren't the better. The bot is hosted and made at [Replit](/D:/Salvador%20do%20C/Apps/Joplin/resources/app.asar/replit.com "replit.com"), and the token of the APIs are stored in .env files on Replit. This bot can search brazilian copypastas in three diferents databases: the developer's, the [Wiki Fandom Copypasta BR](https://copypasta-br.fandom.com/pt-br/wiki/Wiki_Copypasta_BR) and the [Copypastabr Subreddit](https://www.reddit.com/r/copypastabr/).
+I'm new to these languages, so probably the code and the methods aren't the better. The bot is hosted and made at [Replit](https://replit.com), and the token of the APIs are stored in .env files on Replit. This bot can search brazilian copypastas in three diferents databases: the developer's, the [Wiki Fandom Copypasta BR](https://copypasta-br.fandom.com/pt-br/wiki/Wiki_Copypasta_BR) and the [Copypastabr Subreddit](https://www.reddit.com/r/copypastabr/).
 
 *Atenttion: all of this is in portuguese.*
 
