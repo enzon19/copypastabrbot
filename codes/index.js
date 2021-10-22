@@ -6,11 +6,12 @@ const axios = require("axios");
 const fs = require('fs');
 
 let returned;
-let pathSettings = fs.readFileSync(__dirname + '/settings.json');
-let settings = JSON.parse(pathSettings);
 const options = ["do desenvolvedor do bot", "da Wiki Fandom", "do Reddit"]
 
 bot.on('message', (msg) => {
+
+  let pathSettings = fs.readFileSync(__dirname + '/settings.json');
+  let settings = JSON.parse(pathSettings);
 
 	let content = msg.text.toString().toLowerCase();
 
@@ -51,8 +52,16 @@ bot.on('message', (msg) => {
 
 			break;
 
+			case '/ping':
+
+				bot.sendMessage(msg.chat.id, `Pong! 🏓`);
+
+			break;
+
 			case '/ajuda':
 			case '/ajuda@copypastabrbot':
+      case '/help':
+			case '/help@copypastabrbot':
 
 				if (settings[msg.from.id] == undefined) {
 					
@@ -110,6 +119,12 @@ bot.on('message', (msg) => {
 
 			break;
 
+      case '/privacy':
+      case '/privacy@copypastabrbot':
+
+        bot.sendMessage(msg.chat.id, `Veja a [política de privacidade](https://telegra.ph/Pol%C3%ADtica-de-Privacidade-do-Copypasta-Bot-09-11).\n\nConfira o código do bot no [GitHub](https://github.com/enzon19/copypastabrbot).`, { parse_mode: "Markdown" });
+
+      break;
 
 		}
 
@@ -118,6 +133,9 @@ bot.on('message', (msg) => {
 });
 
 bot.on('inline_query', (msg) =>{
+
+  let pathSettings = fs.readFileSync(__dirname + '/settings.json');
+  let settings = JSON.parse(pathSettings);
 
 	returned = [];
 
@@ -129,7 +147,7 @@ bot.on('inline_query', (msg) =>{
 
 		} else {
 
-			axios.get(`https://copypasta-br.fandom.com/pt-br/api.php?action=opensearch&search=${msg.query}&format=json`).then(async(res) => {
+			axios.get(`https://copypasta-br.fandom.com/pt-br/api.php?action=opensearch&search=${msg.query.toLowerCase()}&format=json`).then(async(res) => {
 
 				for (i = 0; i < res.data[3].length; i++) {
 
@@ -288,6 +306,9 @@ bot.on('inline_query', (msg) =>{
 });
 
 bot.on("callback_query", (callbackQuery) => {
+
+  let pathSettings = fs.readFileSync(__dirname + '/settings.json');
+  let settings = JSON.parse(pathSettings);
 
 	let msg = callbackQuery.message
 
